@@ -123,6 +123,46 @@
           }
         }
       }
+    },
+    "ng-disable-link": {
+      "projectType": "library",
+      "root": "projects/ng-disable-link",
+      "sourceRoot": "projects/ng-disable-link/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-disable-link/tsconfig.lib.json",
+            "project": "projects/ng-disable-link/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-disable-link/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-disable-link/src/test.ts",
+            "tsConfig": "projects/ng-disable-link/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-disable-link/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-disable-link/tsconfig.lib.json",
+              "projects/ng-disable-link/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ng-disable-link-app"
 }
