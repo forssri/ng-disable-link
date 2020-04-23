@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { NgDisableLinkComponent } from './ng-disable-link.component';
 
 
 
 @NgModule({
-  declarations: [NgDisableLinkComponent],
+  declarations: [],
   imports: [
   ],
-  exports: [NgDisableLinkComponent]
+  exports: []
 })
 export class NgDisableLinkModule { }
