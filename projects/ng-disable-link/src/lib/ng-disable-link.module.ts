@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
+import { DisableLinkDirective } from './disable-link.directive';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [DisableLinkDirective],
   imports: [
   ],
-  exports: []
+  exports: [DisableLinkDirective]
 })
 export class NgDisableLinkModule { }

@@ -1,0 +1,21 @@
+.link-container > a[aria-disabled="true"] {
+  cursor: default;
+  color: darkgray;
+}
+
+.link-container {
+  margin: 15px 5px;
+}
+
+.debug-info {
+  font-size: 12px;
+  color: #6f6f6f;
+}
+
+.debug-info::before {
+  content: '';
+  display: block;
+  border-bottom: 1px solid #afafaf;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
