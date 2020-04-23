@@ -1,27 +1,29 @@
-# NgDisableLinkApp
+# Demo App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+This is a demo app to showcase how to use `ngDisableLink` directive
 
-## Development server
+## Install
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Install the package by running `npm install ng-disable-link`
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Import the module `NgDisableLinkModule` in the module where the directive will be used
+Use the directive `ngDisableLink` with a boolean value in anchor tag
 
-## Build
+``` html
+<a href="https://example.com" [ngDisableLink]="!enabled">Example link</a>
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+In the component, you can implement custom logic to enable/disable the link
 
-## Running unit tests
+``` ts
+enabled = false;
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Styling
 
-## Running end-to-end tests
+The anchor tag when disabled will have the `aria-disabled` attribute set to true, so css selector `a[aria-disabled="true"]` can be used for styling
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Live
+[Stackblitz](https://stackblitz.com/edit/ng-disable-link-demo)
