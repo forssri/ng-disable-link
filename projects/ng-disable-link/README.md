@@ -1,24 +1,26 @@
 # NgDisableLink
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+Directive to disable anchor tag in Angular
 
-## Code scaffolding
+## Install
 
-Run `ng generate component component-name --project ng-disable-link` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-disable-link`.
-> Note: Don't forget to add `--project ng-disable-link` or else it will be added to the default project in your `angular.json` file. 
+Install the package by running `npm install ng-disable-link`
 
-## Build
+## Usage
 
-Run `ng build ng-disable-link` to build the project. The build artifacts will be stored in the `dist/` directory.
+Import the module `NgDisableLinkModule` in the module where the directive will be used
+Use the directive `ngDisableLink` with a boolean value in anchor tag
 
-## Publishing
+``` html
+<a href="https://example.com" [ngDisableLink]="!enabled">Example link</a>
+```
 
-After building your library with `ng build ng-disable-link`, go to the dist folder `cd dist/ng-disable-link` and run `npm publish`.
+In the component, you can implement custom logic to enable/disable the link
 
-## Running unit tests
+``` ts
+enabled = false;
+```
 
-Run `ng test ng-disable-link` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Styling
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The anchor tag when disabled will have the `aria-disabled` attribute set to true, so css selector `a[aria-disabled="true"]` can be used for styling
