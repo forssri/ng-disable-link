@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { DisableLinkDirective } from './disable-link.directive';
 
 @Component({
-  template: '<a href="https://something.com" [ngDisableLink]="enabled">Some Link</a>'
+  template: '<a href="https://example.com" [ngDisableLink]="!enabled">Some Link</a>'
 })
 class TestComponent {
   enabled = true;
@@ -12,7 +12,7 @@ class TestComponent {
 
 let component: TestComponent;
 let fixture: ComponentFixture<TestComponent>;
-
+const exampleUrl = 'https://example.com/';
 beforeEach(() => {
   TestBed.configureTestingModule({
     declarations: [
@@ -30,10 +30,16 @@ describe('DisableLinkDirective', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should change href', () => {
+  it('should not affect href', () => {
+    fixture.detectChanges();
+    const hrefValue = fixture.nativeElement.querySelector('a').href;
+    expect(hrefValue).toEqual(exampleUrl);
+  });
+
+  it('should change href when disabled', () => {
     component.enabled = false;
     fixture.detectChanges();
-
-    console.log(fixture.nativeElement.querySelector('a'));
+    const hrefValue = fixture.nativeElement.querySelector('a').href;
+    expect(hrefValue).not.toEqual(exampleUrl);
   });
 });
